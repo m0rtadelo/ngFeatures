@@ -3,7 +3,7 @@ version: '2.0'
 services:
   angular:
     hostname: localhost
-    container_name: angular-container
+    container_name: ngFeatures-container
     build: .
     ports:
       - 80:80
