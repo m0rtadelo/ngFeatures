@@ -1,3 +1,4 @@
+# Build App
 FROM node:8.11.2-alpine as node
 
 WORKDIR /usr/src/app
@@ -10,7 +11,7 @@ COPY . .
 
 RUN npm run build
 
-# Stage 2
+# Publish App
 FROM nginx:1.13.12-alpine
 
 COPY --from=node /usr/src/app/dist/ngFeatures /usr/share/nginx/html
