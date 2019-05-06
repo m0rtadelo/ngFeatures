@@ -92,7 +92,7 @@ export class TimerService {
    */
   private extendSession(): void {
     // TODO: get token from store
-    this.loginService.login();
+    this.loginService.login(/* token */);
     this.reset();
     this.start();
   }
