@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PingService } from '../ping.service';
+import { TimerService } from '../timer.service';
 
 @Component({
   selector: 'app-ping',
@@ -8,16 +8,13 @@ import { PingService } from '../ping.service';
 })
 export class PingComponent implements OnInit {
 
-  constructor(private readonly loginService: PingService) { }
+  constructor(private readonly timerService: TimerService) { }
 
   ngOnInit() {
   }
 
   login() {
-    this.loginService.login();
+    this.timerService.start(10);
   }
 
-  logout() {
-    this.loginService.logout();
-  }
 }
