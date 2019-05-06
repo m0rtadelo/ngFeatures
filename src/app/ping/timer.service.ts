@@ -61,6 +61,7 @@ export class TimerService {
    */
   private showConfirm(): void {
     const timeLapsedOrigin = new Date().getTime();
+    // TODO: i18n captions
     const result = confirm('You want to continue logged?');
     const timeLapsedFinal = new Date().getTime();
     this.execute(timeLapsedOrigin, timeLapsedFinal, result);
@@ -74,6 +75,7 @@ export class TimerService {
    */
   private execute(timeLapsedOrigin: number, timeLapsedFinal: number, result: any): void {
     if (timeLapsedFinal - timeLapsedOrigin > this.adviceTime * 1000) {
+      // TODO: i18n captions
       alert('Timed Out!');
       this.logout();
     } else {
