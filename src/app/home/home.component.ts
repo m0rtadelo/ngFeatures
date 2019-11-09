@@ -1,24 +1,29 @@
-import { Component, Renderer2, ViewChild, ElementRef } from '@angular/core';
+import { Component, Renderer2, ViewChild, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   @ViewChild('name') inputName: ElementRef;
   @ViewChild('country') inputCountry: ElementRef;
   @ViewChild('postal') inputPostal: ElementRef;
+  private fillElements: ElementRef[];
 
   constructor(private renderer: Renderer2) { }
+
+   ngOnInit(): void {
+    this.fillElements = [this.inputCountry, this.inputName, this.inputPostal];
+  }
 
   /**
    * disables autofit functionality on elements form.
    */
   disableAutofit(): void {
-    this.addAutocomplete(this.inputCountry);
-    this.addAutocomplete(this.inputName);
-    this.addAutocomplete(this.inputPostal);
+    this.fillElements.forEach(element => {
+      this.addAutocomplete(element);
+    });
   }
 
   /**
